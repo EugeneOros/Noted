@@ -63,7 +63,7 @@ class LinkDialogState extends State<LinkDialog> with SingleTickerProviderStateMi
                     Expanded(
                       child: FillButton(
                         title: "Cancel",
-                        color: secondaryColor,
+                        color: pinkColor,
                         onPressed: () => Navigator.of(context).pop(),
                       ),
                     ),

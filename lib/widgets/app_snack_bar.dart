@@ -40,7 +40,7 @@ SnackBar getAppSnackBar({
         ? null
         : SnackBarAction(
             label: actionName,
-            textColor: actionColor ?? darkColor,
+            textColor: actionColor ?? darkBlueColor,
             onPressed: onAction,
           ),
   );

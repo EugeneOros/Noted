@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:utopia_recruitment_task/app.dart';
-import 'package:utopia_recruitment_task/logic/blocs/login_register/login_bloc.dart';
+import 'package:utopia_recruitment_task/logic/blocs/login_register/login_register_bloc.dart';
 import 'package:utopia_recruitment_task/logic/blocs/note_link/link_bloc.dart';
 import 'package:utopia_recruitment_task/logic/blocs/notes/notes_bloc.dart';
 
@@ -18,7 +18,7 @@ Future<List<BlocProvider<Object?>>> _getBlocProviders() async {
   // Blocs
   final authBloc = AuthenticationBloc(authService: _authService)..add(AppStarted());
   final notesBloc = NotesBloc(notesService: _itemService, authenticationBloc: authBloc); //..note_link(LoadNotes());
-  final loginBloc = LoginBloc(authService: _authService);
+  final loginBloc = LoginRegisterBloc(authService: _authService);
   final linkBloc = LinkBloc();
 
 
@@ -27,7 +27,7 @@ Future<List<BlocProvider<Object?>>> _getBlocProviders() async {
     BlocProvider<AuthenticationBloc>(
       create: (context) => authBloc,
     ),
-    BlocProvider<LoginBloc>(
+    BlocProvider<LoginRegisterBloc>(
       create: (context) => loginBloc,
     ),
     BlocProvider<NotesBloc>(

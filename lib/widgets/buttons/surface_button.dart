@@ -20,7 +20,7 @@ class SurfaceButton extends StatelessWidget {
         onPressed: onPressed,
         style: ButtonStyle(
           padding: MaterialStateProperty.all<EdgeInsets>(_padding),
-          shadowColor: MaterialStateProperty.all(darkColor),
+          shadowColor: MaterialStateProperty.all(darkBlueColor),
           alignment: Alignment.centerLeft,
           mouseCursor: MaterialStateProperty.all(_cursors),
           foregroundColor: null,

@@ -21,13 +21,13 @@ extension MessageTypeExtension on MessageType{
   Color get color{
     switch (this) {
       case MessageType.error:
-        return errorColor;
+        return redColor;
       case MessageType.warning:
-        return warningColor;
+        return yellowColor;
       case MessageType.success:
-        return successColor;
+        return greenColor;
       case MessageType.info:
-        return infoColor;
+        return blueColor;
     }
   }
 

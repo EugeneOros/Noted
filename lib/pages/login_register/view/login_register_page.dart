@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:utopia_recruitment_task/logic/blocs/authentication/authentication_bloc.dart';
-import 'package:utopia_recruitment_task/logic/blocs/login_register/login_bloc.dart';
+import 'package:utopia_recruitment_task/logic/blocs/login_register/login_register_bloc.dart';
 import 'package:utopia_recruitment_task/pages/login_register/widget/background_image.dart';
 import 'package:utopia_recruitment_task/pages/login_register/widget/login_register_form.dart';
 import 'package:utopia_recruitment_task/widgets/loading_indicator.dart';
@@ -16,11 +16,11 @@ class LoginRegisterPage extends StatelessWidget {
 
     return Scaffold(
       body: BlocListener(
-        bloc: BlocProvider.of<LoginBloc>(context),
-        listener: (BuildContext context, LoginState state) {
+        bloc: BlocProvider.of<LoginRegisterBloc>(context),
+        listener: (BuildContext context, LoginRegisterState state) {
           if (state.isSuccess) BlocProvider.of<AuthenticationBloc>(context).add(LoggedIn());
         },
-        child: BlocBuilder<LoginBloc, LoginState>(
+        child: BlocBuilder<LoginRegisterBloc, LoginRegisterState>(
           builder: (context, state) {
             return state.isSubmitting
                 ? LoadingIndicator(backgroundColor: bgColor)

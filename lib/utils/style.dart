@@ -14,15 +14,15 @@ double getElevation(Set<MaterialState> states, {double usual = 8, double focused
 
 Color getColor(
   Set<MaterialState> states, {
-  Color usual = primaryColor,
-  Color focused = darkColor,
-  Color pressed = darkColor,
+  Color usual = purpleColor,
+  Color focused = darkBlueColor,
+  Color pressed = darkBlueColor,
   Color disabled = greyColor,
-  Color selected = darkColor,
+  Color selected = darkBlueColor,
   bool isSelected = false,
 }) {
   if (isSelected) {
-    return darkColor;
+    return darkBlueColor;
   } else if (states.contains(MaterialState.pressed)) {
     return pressed;
   } else if (states.contains(MaterialState.disabled)) {

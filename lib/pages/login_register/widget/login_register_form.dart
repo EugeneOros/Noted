@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:utopia_recruitment_task/widgets/app_text_form_field.dart';
-import 'package:utopia_recruitment_task/logic/blocs/login_register/login_bloc.dart';
+import 'package:utopia_recruitment_task/logic/blocs/login_register/login_register_bloc.dart';
 
 class LoginRegisterForm extends StatefulWidget {
-  final LoginState loginState;
+  final LoginRegisterState loginState;
 
   const LoginRegisterForm({
     Key? key,
@@ -19,12 +19,12 @@ class _LoginRegisterFormState extends State<LoginRegisterForm> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  LoginBloc? _loginBloc;
+  LoginRegisterBloc? _loginBloc;
 
   @override
   void initState() {
     super.initState();
-    _loginBloc = BlocProvider.of<LoginBloc>(context);
+    _loginBloc = BlocProvider.of<LoginRegisterBloc>(context);
     _emailController.addListener(() {
       _loginBloc!.add(LoginEventEmailChanged(email: _emailController.text));
     });
