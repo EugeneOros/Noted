@@ -1,3 +1,9 @@
+# Screenshots
+Login or register page     |  Home page                | Add edit note page
+:-------------------------:|:-------------------------:|:-------------------------:
+![](assets/screenshots/login_register.png) | ![](assets/screenshots/home.png) | ![](assets/screenshots/note_details.png)
+
+
 # Zadanie rekrutacyjne dla Utopia USS
 
 ## Cel
