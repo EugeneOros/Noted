@@ -53,18 +53,29 @@ class FillButton extends StatelessWidget {
     Color _iconColor = iconColor ?? _getEntryColor();
     TextStyle _textStyle = (textStyle ?? Theme.of(context).textTheme.button)!.copyWith(color: _getEntryColor());
 
-    return ElevatedButton(
-      onPressed: onPressed,
-      child: IntrinsicHeight(
-        child: IntrinsicWidth(
-          child: SizedBox(
-            width: width == null ? null : width! - 10,
-            height: height == null ? null : height! - 10,
+    return SizedBox(
+      width: width == null ? null : width! - 10,
+      height: height == null ? null : height! - 10,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ButtonStyle(
+          padding: MaterialStateProperty.all(padding),
+          foregroundColor: null,
+          overlayColor: MaterialStateProperty.all(Colors.transparent),
+          shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius))),
+          elevation: MaterialStateProperty.resolveWith(getElevation),
+          backgroundColor: MaterialStateProperty.resolveWith(
+            (state) => getColor(state, usual: color, selected: selectedColor, isSelected: isSelected, disabled: disabledColor),
+          ),
+        ),
+        child: IntrinsicHeight(
+          child: IntrinsicWidth(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [
                 if (leftIcon != null) Icon(leftIcon, color: _iconColor, size: iconSize),
+                if (title != null) SizedBox(width: 5),
                 if (title != null)
                   Expanded(
                     child: Text(
@@ -76,20 +87,11 @@ class FillButton extends StatelessWidget {
                       style: _textStyle,
                     ),
                   ),
+                if (title != null && leftIcon != null) SizedBox(width: 5),
                 if (rightIcon != null) Icon(rightIcon, color: _iconColor, size: iconSize)
               ],
             ),
           ),
-        ),
-      ),
-      style: ButtonStyle(
-        padding: MaterialStateProperty.all<EdgeInsets>(padding),
-        foregroundColor: null,
-        overlayColor: MaterialStateProperty.all(Colors.transparent),
-        shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius))),
-        elevation: MaterialStateProperty.resolveWith(getElevation),
-        backgroundColor: MaterialStateProperty.resolveWith(
-          (state) => getColor(state, usual: color, selected: selectedColor, isSelected: isSelected, disabled: disabledColor),
         ),
       ),
     );

@@ -11,6 +11,7 @@ ThemeData getThemeData() {
     splashColor: Colors.transparent,
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
+        minimumSize: MaterialStateProperty.all(Size(0,0)),
         padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 40, vertical: 20)),
         foregroundColor: null,
         overlayColor: MaterialStateProperty.all(Colors.transparent),
@@ -31,8 +32,6 @@ ThemeData getThemeData() {
       onSecondary: Color(0xffa55a96),
       surface: Colors.white,
       onSurface: Color(0xff777b89),
-      primaryVariant: Color(0xff6c60ff),
-      secondaryVariant: Color(0xffc997f8),
     ),
     textTheme: TextTheme(
       button: TextStyle(fontSize: 18, overflow: TextOverflow.ellipsis, fontWeight: FontWeight.w500, color: Colors.white),
