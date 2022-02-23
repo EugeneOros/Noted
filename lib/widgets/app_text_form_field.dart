@@ -43,6 +43,7 @@ class AppTextFormField extends StatelessWidget {
           labelText: labelText,
           labelStyle: Theme.of(context).textTheme.subtitle1,
           alignLabelWithHint: false,
+          errorMaxLines: 3,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(borderRadius),
             borderSide: const BorderSide(width: 0, style: BorderStyle.none),

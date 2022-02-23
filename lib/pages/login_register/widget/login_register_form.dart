@@ -76,7 +76,9 @@ class _LoginRegisterFormState extends State<LoginRegisterForm> {
               labelText: 'Password',
               obscureText: true,
               controller: _passwordController,
-              validator: (_) => widget.loginState.isPasswordValid ? null : 'Password need to have more then 5 chars',
+              validator: (_) => widget.loginState.isPasswordValid
+                  ? null
+                  : 'Password must be at least 8 characters long, include at least one lowercase letter, one uppercase letter, and a number',
             ),
             SizedBox(height: size.height * 0.03),
             ElevatedButton(

@@ -7,7 +7,7 @@ class BackgroundImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Opacity(
-      opacity: 0.9,
+      opacity: 0.5,
       child: Container(
         alignment: Alignment.bottomCenter,
         child: SvgPicture.asset(

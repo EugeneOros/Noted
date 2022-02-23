@@ -13,8 +13,10 @@ class AuthService {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         await _registerWithEmailAndPassword(email, password);
+        await _logInWithEmailAndPassword(email, password);
+      } else {
+        throw e;
       }
-      throw e;
     }
   }
 
@@ -34,7 +36,7 @@ class AuthService {
     return _firebaseAuth.currentUser;
   }
 
-  bool isSignedIn(){
+  bool isSignedIn() {
     return getUser() != null;
   }
 }
